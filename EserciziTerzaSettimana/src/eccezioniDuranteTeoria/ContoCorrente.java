@@ -1,4 +1,4 @@
-package eccezioni;
+package eccezioniDuranteTeoria;
 
 public class ContoCorrente {
 	double saldo;

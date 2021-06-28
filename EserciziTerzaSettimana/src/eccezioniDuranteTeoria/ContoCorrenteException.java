@@ -1,4 +1,4 @@
-package eccezioni;
+package eccezioniDuranteTeoria;
 
 public class ContoCorrenteException extends Exception{
 	

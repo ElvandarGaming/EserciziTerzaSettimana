@@ -1,4 +1,4 @@
-package eccezioni;
+package eccezioniDuranteTeoria;
 
 import java.io.FileNotFoundException;
 
