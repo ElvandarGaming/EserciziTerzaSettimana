@@ -12,13 +12,13 @@ public class Tris {
 
 	public static void main(String[] args) {
 
-		System.out.println("Benvenuto nel gioco del tris, vinci per uscire!");
+		tris();
+		
+	}
 
-		Tris a = new Tris();
-		a.aggiornaCampo();
-		System.out.println();
-		System.out.println();
-		System.out.println("inserisci una coordinata");
+	private static void tris() {
+		
+		startGame();
 		
 	}
 
@@ -37,6 +37,19 @@ public class Tris {
 		}
 	}
 
-	
-	
+	private static void startGame() {
+		System.out.println("Benvenuto nel gioco del tris, vinci per uscire!");
+		Tris a = new Tris();
+		a.aggiornaCampo();
+		System.out.println();
+		System.out.println();
+		System.out.println("inserisci una coordinata");
+	}
+
+	private void attendiInput() {
+		
+		int x = console.nextInt();
+		int y = console.nextInt();
+		
+	}
 }
