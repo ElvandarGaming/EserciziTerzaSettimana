@@ -1,5 +1,6 @@
 package collectionsDuranteTeoria;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -52,7 +53,8 @@ public class EsempiCollections {
 
 		System.out.println(persone.size());
 		
-		
+		PersonaRepository repo = new PersonaRepository();
+		ArrayList<Persona> var = repo.leggiPersone(); // se si specifica ArrayList, in caso di modifiche bisogna cambiare tutto
 		
 	}
 
@@ -62,4 +64,7 @@ public class EsempiCollections {
 	public static void g(List lista) {
 		lista.add(22); // cast implicito del 22 a classe Integer
 	}
+	
+	
+	
 }

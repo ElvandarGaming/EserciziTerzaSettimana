@@ -17,24 +17,29 @@ public class ManeggiaInteri {
 
 		List<Integer> lista = createList(n);
 		
-		System.out.println(lista);
-		for (Integer num : lista) {
-			System.out.println(num);
-		}
+		//System.out.println(lista);
+		//for (Integer num : lista) {
+		//	System.out.println(num);
+		//}
 
 		System.out.println();
 
 		List<Integer> listaatsil = addInvertedList(lista);
-		
 		System.out.println(listaatsil);
-		for (Integer num : listaatsil) {
-			System.out.println(num);
-		}
+		List<Integer> blue = addInvertedListMeglio(listaatsil);
+		//List<Integer> blue = addInvertedList(listaatsil);
+
+		
+		System.out.println(blue);
+		//for (Integer num : listaatsil) {
+		//	System.out.println(num);
+		//}
 		
 		System.out.println();
 		
-		printEvenOdd(lista,true);
-	
+		//printEvenOdd(lista,false);
+		
+		printEvenOddMeglio(lista,true);
 	
 	}
 
@@ -52,6 +57,7 @@ public class ManeggiaInteri {
 		return lista;
 	}
 
+	//ritorna una nuova lista con i valori invertiti aggiunti
 	public static List<Integer> addInvertedList(List<Integer> lis) {
 		List<Integer> lista = new ArrayList<Integer>();
 
@@ -65,6 +71,16 @@ public class ManeggiaInteri {
 		return lista;
 	}
 
+	//ritorna la lista originale con i valori invertiti aggiunti
+	public static List<Integer> addInvertedListMeglio(List<Integer> lis){
+		int last =  lis.size()-1;
+		for(int i = last; i>=0 ; i--) {
+			lis.add(lis.get(i));
+		}
+		
+		return lis;
+	}
+	
 	public static void printEvenOdd(List<Integer> lis, boolean p) {
 		ListIterator<Integer> iter = lis.listIterator();
 		if (p) {
@@ -86,4 +102,11 @@ public class ManeggiaInteri {
 		}
 
 	}
+
+	public static void printEvenOddMeglio(List<Integer> lis, boolean p) {
+		for(int i = p?0:1; i <lis.size(); i+=2) {
+			System.out.println(lis.get(i));
+		}
+	}
+
 }
