@@ -56,6 +56,17 @@ public class ManeggiaInteri {
 
 		return lista;
 	}
+	
+	public static List<Integer> createRandomOrderList(int n) {
+		List<Integer> lista = new ArrayList<>();
+		Random x = new Random();
+
+		for (int i = 0; i < n; i++) {
+			// lista.add((int) (Math.random() * 101));
+			lista.add(x.nextInt((int)Math.pow(2,8)));
+		}
+		return lista;
+	}
 
 	//ritorna una nuova lista con i valori invertiti aggiunti
 	public static List<Integer> addInvertedList(List<Integer> lis) {
