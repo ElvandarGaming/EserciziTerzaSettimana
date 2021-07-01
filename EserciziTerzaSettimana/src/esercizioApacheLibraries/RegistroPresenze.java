@@ -4,16 +4,18 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 import java.util.TreeMap;
-
 import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class RegistroPresenze {
 	private Map<String, Presenza> registroMese = new TreeMap<>();
+	private static Logger logger = LoggerFactory.getLogger(RegistroPresenze.class);
 
 	public RegistroPresenze() {
-	
+
 	}
-	
+
 	public RegistroPresenze(Map<String, Presenza> registroMese) {
 		this.registroMese = registroMese;
 	}
@@ -35,27 +37,29 @@ public class RegistroPresenze {
 
 	private static Presenza toPresenzaString(String str) {
 		String[] strs = str.split("@");
-		Presenza Presenza = new Presenza(strs[0] , Integer.parseInt(strs[1]));
+		Presenza Presenza = new Presenza(strs[0], Integer.parseInt(strs[1]));
 		return Presenza;
 	}
 
 	public void exportRegister(String nomeFile) throws IOException {
+		
 		String writeString = "";
 		for (Map.Entry<String, Presenza> p : registroMese.entrySet()) {
 			writeString += toStringPresenza(p.getValue()) + "#";
 		}
-		File file = new File("outputRegistroPresenze/"+nomeFile + ".txt");
+		File file = new File("outputRegistroPresenze/" + nomeFile + ".txt");
 
 		FileUtils.writeStringToFile(file, writeString, "UTF-8");
-
+		
 	}
+	
 
 	public static RegistroPresenze importRegister(String nomeFile) throws IOException {
-		File file = new File("outputRegistroPresenze/"+nomeFile + ".txt");
+		File file = new File("outputRegistroPresenze/" + nomeFile + ".txt");
 		String readString = FileUtils.readFileToString(file, "UTF-8");
 		String[] splitPresenza = readString.split("#");
 		Map<String, Presenza> registroMese = new TreeMap<>();
-		for(int i= 0; i<splitPresenza.length;i++) {
+		for (int i = 0; i < splitPresenza.length; i++) {
 			registroMese.put(toPresenzaString(splitPresenza[i]).getNome(), toPresenzaString(splitPresenza[i]));
 		}
 		return new RegistroPresenze(registroMese);
